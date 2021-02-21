@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>  
+        body{  
+          font-family: Calibri, Helvetica, sans-serif;  
+          background-color: orange;  
+        }  
+        .container { 
+            margin: 150px; 
+            margin-top: 30px;
+            padding: 50px;  
+          background-color: white;  
+        }  
+          
+        input[type=text] {  
+          width: 100%;  
+          padding: 15px;  
+          margin: 5px 0 22px 0;  
+          display: inline-block;  
+          border: none;  
+          background: #f1f1f1;  
+        }  
+        input[type=text]:focus {  
+          background-color:none;  
+          outline: none;  
+        }  
+         div {  
+                    padding: 10px 0;  
+                 }  
+        hr {  
+          border: 1px solid #f1f1f1;  
+          margin-bottom: 25px;  
+        }  
+        #new-detail-input {  
+          background-color: gray;  
+          color: white;  
+          padding: 16px 20px;  
+          margin: 8px 0;  
+          border: none;  
+          cursor: pointer;  
+          width: 100%;  
+          opacity: 0.9;  
+        }  
+        #new-detail-input:hover {  
+          opacity: 1;  
+        }  
+        </style> 
+</head>
+<body>
+    <form name="form" method="POST" action="" class="input">  
+      
+        <div class="container"> 
+          <img src="/logo.jpg">
+        <h1>Sign up for Code Queen Kampala</h1>  
+        <p>We are excited to see you interested. Submit your application here - we can't wait to read it. The name and photo associated with your Google account will be recorded when you upload files and submit this form.</p>
+        <hr>  
+
+        <label for="email"><b>Email:</b></label>  
+        <input type="text" placeholder="Your answer" name="email" required>
+
+        <label> <b>Firstname:</b> </label>   
+        <input type="text" name="firstname" placeholder= "Your answer" size="15" required />   
+          
+        <label> <b>Lastname:</b> </label>    
+        <input type="text" name="lastname" placeholder="Your answer" size="15"required />   
+
+        <label> <b>Phone number (WhatsApp number):</b> </label>     
+        <input type="text" name="phone" placeholder="Your answer" size="10" required />
+
+        <label> <b>Date of birth:</b> </label>    
+        <input type="date" name="" size="15"required /> <br> <br>
+
+        <label> <b>Which city are you from?</b> </label>  <br>   
+        <input type="text" name="" placeholder="Your answer" size="10" />
+
+        <label><b>What is your status?</b></label>  
+          <select>  
+            <option value="married">Married</option>  
+            <option value="single">Single</option>  
+            <option value="divorced">Divorced</option>  
+            <option value="separated">Separated</option>  
+            <option value="singleparent">Single parent</option>  
+          </select>  <br> <br>
+      
+        <label><b>Do you have any children?</b></label><br>  
+        <input type="radio" value="yes" name="children" > Yes   
+        <input type="radio" value="no" name="children"> No  <br> <br> 
+       
+        <label><b>If yes, how many?</b></label>   
+        <input type="text" name="" placeholder= "Your answer" size="15" required />
+         
+        <label><b>What is your highest level of education?</b></label>  
+          <select>  
+            <option value="university">University graduate</option>  
+            <option value="alevel">A-Level</option>  
+            <option value="olevel">O-Level</option>  
+            <option value="primary">Primary</option>  
+            <option value="other">Other</option>  
+          </select>  <br> <br> <br>
+ 
+        <label><b>What is your current occupation?</b></label>  
+          <select>  
+            <option value="employed">Employed</option>  
+            <option value="unemployed">Unemployed</option>  
+            <option value="student">Student</option>  
+            <option value="stayhome">Stay home parent</option>  
+          </select>  <br> <br> <br>
+ 
+        <label><b>What is your monthly income (UGX)?</b></label>  
+          <select>  
+            <option value="none">Don't have an income yet</option>  
+            <option value="200k">less than 200k</option>  
+            <option value="between">between 200k and 600k</option>  
+            <option value="600k">more than 600k</option>  
+          </select>  <br> <br>
+
+        <label><b>Do you have a laptop?</b></label><br>  
+        <input type="radio" value="yes" name="laptop" > Yes   
+        <input type="radio" value="no" name="laptop"> No   <br> <br>
+         
+        <label><b>Do you have access to data bundles or wifi?</b></label><br>  
+        <input type="radio" value="yes" name="data" > Yes   
+        <input type="radio" value="no" name="data"> No   <br> <br>
+        
+        <label><b>If No, How will you manage to continue with the program Online(for 2 hours classes, 3 times a week for 2 months)? NB: 80% attendance is required for graduation</b></label>   
+        <input type="text" name="" placeholder= "Your answer" size="15" required /> <br> 
+ 
+        <label><b>How did you hear about this opportunity?</b></label> 
+          <select>  
+            <option value="facebook">Facebook</option>  
+            <option value="whatsapp">WhatsApp</option>  
+            <option value="website">Website</option>  
+            <option value="linkedin">LinkedIn</option>  
+            <option value="mouth">Word of mouth</option>  
+          </select>  <br> <br>
+
+        <label> <b>Which Facebook group, Website, WhatsApp group or other channels?</b> </label>  <br>   
+        <input type="text" name="" placeholder="Your answer" size="10" />
+ 
+        <label><b>Why do you want to sign up for this course?</b></label>  
+          <select >  
+            <option value="facebook">I'm looking for a career change in technology</option>  
+            <option value="whatsapp">I want to up-skill for my existing employer</option>  
+            <option value="website">I want to improve my coding skills for fun</option>  
+            <option value="mouth">I am not sure - I just want to see where this takes me</option>  
+          </select>  <br> <br> 
+
+        <label><b>Please check this box to give ETC permission to contact you and also process and store your data for reports</b></label><br> <br>
+        
+        <input id="new-detail-input" type="submit" value="Submit">  
+      </form> 
+
+      <script>
+        let details = [];
+
+        $("#new-detail-input").click(function() {
+          let newInput = $(".input").val();
+          details.push(newInput);
+
+          for(let detail of details) {
+            $(".container").append('<label>' + detail + '</label>');
+
+            List.pop(newInput);
+          }
+        });
+      </script>
+</body>
+</html>
