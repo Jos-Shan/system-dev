@@ -14,8 +14,8 @@
             margin: 150px; 
             margin-top: 30px;
             padding: 50px;  
-          background-color: white;  
-        }  
+            background-color: white;  
+        } 
           
         input[type=text] {  
           width: 100%;  
@@ -52,10 +52,14 @@
         </style> 
 </head>
 <body>
-    <form name="form" method="POST" action="" class="input">  
+  
+    <form name="form" method="POST" action="/post-application" class="input" id="applications">  
       
         <div class="container"> 
-          <img src="/logo.jpg">
+          <div class="image">
+            <img src="/Code Queen Logo.png" width=100px height=50px>
+          </div>
+
         <h1>Sign up for Code Queen Kampala</h1>  
         <p>We are excited to see you interested. Submit your application here - we can't wait to read it. The name and photo associated with your Google account will be recorded when you upload files and submit this form.</p>
         <hr>  
@@ -150,7 +154,7 @@
             <option value="mouth">I am not sure - I just want to see where this takes me</option>  
           </select>  <br> <br> 
 
-        <label><b>Please check this box to give ETC permission to contact you and also process and store your data for reports</b></label><br> <br>
+        <input type="checkbox"><label><b>Please check this box to give ETC permission to contact you and also process and store your data for reports</b></label><br> <br>
         
         <input id="new-detail-input" type="submit" value="Submit">  
       </form> 
