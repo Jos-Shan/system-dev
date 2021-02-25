@@ -37,7 +37,7 @@
           margin-bottom: 25px;  
         }  
         #new-detail-input {  
-          background-color: gray;  
+          background-color: darkgray;  
           color: white;  
           padding: 16px 20px;  
           margin: 8px 0;  
@@ -53,11 +53,11 @@
 </head>
 <body>
   
-    <form name="form" method="POST" action="/post-application" class="input" id="applications">  
+    <form name="form" method="POST" action="" class="input" id="applications">  
       
         <div class="container"> 
           <div class="image">
-            <img src="/Code Queen Logo.png" width=100px height=50px>
+            <img src="./side-logo.png" width=250px height=100px>
           </div>
 
         <h1>Sign up for Code Queen Kampala</h1>  
@@ -65,25 +65,25 @@
         <hr>  
 
         <label for="email"><b>Email:</b></label>  
-        <input type="text" placeholder="Your answer" name="email" required>
+        <input type="text" placeholder="Your answer" name="email" id="email" required> 
 
         <label> <b>Firstname:</b> </label>   
-        <input type="text" name="firstname" placeholder= "Your answer" size="15" required />   
+        <input type="text" id="firstName" name="firstname" placeholder= "Your answer" size="15" required />   
           
         <label> <b>Lastname:</b> </label>    
-        <input type="text" name="lastname" placeholder="Your answer" size="15"required />   
+        <input type="text" id="lastName" name="lastname" placeholder="Your answer" size="15"required />   
 
         <label> <b>Phone number (WhatsApp number):</b> </label>     
-        <input type="text" name="phone" placeholder="Your answer" size="10" required />
+        <input type="text" id="phoneNumber" name="phone" placeholder="Your answer" size="10" required />
 
         <label> <b>Date of birth:</b> </label>    
-        <input type="date" name="" size="15"required /> <br> <br>
+        <input type="date" id="dob" name="" size="15"required /> <br> <br>
 
         <label> <b>Which city are you from?</b> </label>  <br>   
-        <input type="text" name="" placeholder="Your answer" size="10" />
+        <input type="text" id="city" name="" placeholder="Your answer" size="10" />
 
         <label><b>What is your status?</b></label>  
-          <select>  
+          <select id="status">  
             <option value="married">Married</option>  
             <option value="single">Single</option>  
             <option value="divorced">Divorced</option>  
@@ -92,14 +92,14 @@
           </select>  <br> <br>
       
         <label><b>Do you have any children?</b></label><br>  
-        <input type="radio" value="yes" name="children" > Yes   
-        <input type="radio" value="no" name="children"> No  <br> <br> 
+        <input type="radio" id="yes" value="yes" name="children" > Yes   
+        <input type="radio" id="no" value="no" name="children"> No  <br> <br> 
        
         <label><b>If yes, how many?</b></label>   
-        <input type="text" name="" placeholder= "Your answer" size="15" required />
+        <input type="text" id="number_of_children"name="" placeholder= "Your answer" size="15" required />
          
         <label><b>What is your highest level of education?</b></label>  
-          <select>  
+          <select id="education">  
             <option value="university">University graduate</option>  
             <option value="alevel">A-Level</option>  
             <option value="olevel">O-Level</option>  
@@ -108,7 +108,7 @@
           </select>  <br> <br> <br>
  
         <label><b>What is your current occupation?</b></label>  
-          <select>  
+          <select id="occupation">  
             <option value="employed">Employed</option>  
             <option value="unemployed">Unemployed</option>  
             <option value="student">Student</option>  
@@ -116,7 +116,7 @@
           </select>  <br> <br> <br>
  
         <label><b>What is your monthly income (UGX)?</b></label>  
-          <select>  
+          <select id="income">  
             <option value="none">Don't have an income yet</option>  
             <option value="200k">less than 200k</option>  
             <option value="between">between 200k and 600k</option>  
@@ -124,18 +124,18 @@
           </select>  <br> <br>
 
         <label><b>Do you have a laptop?</b></label><br>  
-        <input type="radio" value="yes" name="laptop" > Yes   
-        <input type="radio" value="no" name="laptop"> No   <br> <br>
+        <input type="radio" id="laptop" value="yes" name="laptop" > Yes   
+        <input type="radio" id="no_laptop" value="no" name="laptop"> No   <br> <br>
          
         <label><b>Do you have access to data bundles or wifi?</b></label><br>  
-        <input type="radio" value="yes" name="data" > Yes   
-        <input type="radio" value="no" name="data"> No   <br> <br>
+        <input type="radio" id="wifi" value="yes" name="data" > Yes   
+        <input type="radio" id="no_wifi" value="no" name="data"> No   <br> <br>
         
         <label><b>If No, How will you manage to continue with the program Online(for 2 hours classes, 3 times a week for 2 months)? NB: 80% attendance is required for graduation</b></label>   
-        <input type="text" name="" placeholder= "Your answer" size="15" required /> <br> 
+        <input type="text" id="classes" name="" placeholder= "Your answer" size="15" required /> <br> 
  
         <label><b>How did you hear about this opportunity?</b></label> 
-          <select>  
+          <select id="opportunity">  
             <option value="facebook">Facebook</option>  
             <option value="whatsapp">WhatsApp</option>  
             <option value="website">Website</option>  
@@ -144,17 +144,17 @@
           </select>  <br> <br>
 
         <label> <b>Which Facebook group, Website, WhatsApp group or other channels?</b> </label>  <br>   
-        <input type="text" name="" placeholder="Your answer" size="10" />
+        <input type="text" id="media" name="" placeholder="Your answer" size="10" />
  
         <label><b>Why do you want to sign up for this course?</b></label>  
-          <select >  
+          <select id="why_this_course" >  
             <option value="facebook">I'm looking for a career change in technology</option>  
             <option value="whatsapp">I want to up-skill for my existing employer</option>  
             <option value="website">I want to improve my coding skills for fun</option>  
             <option value="mouth">I am not sure - I just want to see where this takes me</option>  
           </select>  <br> <br> 
 
-        <input type="checkbox"><label><b>Please check this box to give ETC permission to contact you and also process and store your data for reports</b></label><br> <br>
+        <input type="checkbox" id="permission"><label><b>Please check this box to give ETC permission to contact you and also process and store your data for reports</b></label><br> <br>
         
         <input id="new-detail-input" type="submit" value="Submit">  
       </form> 
@@ -163,15 +163,61 @@
         let details = [];
 
         $("#new-detail-input").click(function() {
-          let newInput = $(".input").val();
-          details.push(newInput);
+          const email = $("#email").val();
+          const firstName = $("#firstName").val();
+          const lastName = $("#lastName").val();
+          const phoneNumber = $("#phoneNumber").val();
+          const dob = $("#dob").val();
+          const city = $("#city").val();
+          const status = $("#status").val();
+          const yes = $("#yes").val();
+          const no = $("#no").val();
+          const number_of_children = $("#number_of_children").val();
+          const education = $("#education").val();
+          const occupation = $("#occupation").val();
+          const income = $("#income").val();
+          const laptop = $("#laptop").val();
+          const no_laptop = $("#no_laptop").val();
+          const wifi = $("#wifi").val();
+          const no_wifi = $("#no_wifi").val();
+          const classes = $("#classes").val();
+          const opportunity = $("#opportunity").val();
+          const media = $("#media").val();
+          const why_this_course = $("#why_this_course").val();
+          const permission = $("#permission").val();
 
-          for(let detail of details) {
-            $(".container").append('<label>' + detail + '</label>');
-
-            List.pop(newInput);
+          const data = {
+            email,
+            firstName,
+            lastName,
+            phoneNumber,
+            dob,
+            city,
+            status,
+            yes,
+            no,
+            number_of_children,
+            education,
+            occupation,
+            income,
+            laptop,
+            no_laptop,
+            wifi,
+            no_wifi,
+            classes,
+            opportunity,
+            media,
+            why_this_course,
+            permission
           }
-        });
+          console.log(data);
+          // details.push(newInput);
+
+          // for(let detail of details) {
+          //   $(".container").append('<label>' + detail + '</label>');
+
+          //   List.pop(newInput);
+          })
       </script>
 </body>
 </html>
