@@ -1,16 +1,17 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const app = express();
- 
+
 app.use(bodyParser.json ());
 const path = require('path');
 
 
-const db = require("./db");
+const db = require("./db/db.js");
 const collection = "application";
 
+
 app.get('/',(req,res)=>{
-  res.sendFile(path.join(_dirname,'form.html'));
+  res.sendFile(path.join(_dirname,'./Frontend/form.html'));
 });
 
 app.get('/getApplications',(req,res)=>{

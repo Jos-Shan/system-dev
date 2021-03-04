@@ -29,6 +29,20 @@
           background-color:none;  
           outline: none;  
         }  
+
+        input[type=email] {  
+          width: 100%;  
+          padding: 15px;  
+          margin: 5px 0 22px 0;  
+          display: inline-block;  
+          border: none;  
+          background: #f1f1f1;  
+        }  
+        input[type=email]:focus {  
+          background-color:none;  
+          outline: none;  
+        }  
+
          div {  
                     padding: 10px 0;  
                  }  
@@ -53,11 +67,11 @@
 </head>
 <body>
   
-    <form name="form" method="POST" action="" class="input" id="applications">  
+    <form name="form" method="POST" action="" class="input">  
       
         <div class="container"> 
           <div class="image">
-            <img src="./side-logo.png" width=250px height=100px>
+            <img src="./side-logo.png" width=300px height=100px>
           </div>
 
         <h1>Sign up for Code Queen Kampala</h1>  
@@ -65,7 +79,7 @@
         <hr>  
 
         <label for="email"><b>Email:</b></label>  
-        <input type="text" placeholder="Your answer" name="email" id="email" required> 
+        <input type="email" placeholder="Your answer" name="email" id="email" required> <br> <br>
 
         <label> <b>Firstname:</b> </label>   
         <input type="text" id="firstName" name="firstname" placeholder= "Your answer" size="15" required />   
@@ -162,62 +176,151 @@
       <script>
         let details = [];
 
-        $("#new-detail-input").click(function() {
-          const email = $("#email").val();
-          const firstName = $("#firstName").val();
-          const lastName = $("#lastName").val();
-          const phoneNumber = $("#phoneNumber").val();
-          const dob = $("#dob").val();
-          const city = $("#city").val();
-          const status = $("#status").val();
-          const yes = $("#yes").val();
-          const no = $("#no").val();
-          const number_of_children = $("#number_of_children").val();
-          const education = $("#education").val();
-          const occupation = $("#occupation").val();
-          const income = $("#income").val();
-          const laptop = $("#laptop").val();
-          const no_laptop = $("#no_laptop").val();
-          const wifi = $("#wifi").val();
-          const no_wifi = $("#no_wifi").val();
-          const classes = $("#classes").val();
-          const opportunity = $("#opportunity").val();
-          const media = $("#media").val();
-          const why_this_course = $("#why_this_course").val();
-          const permission = $("#permission").val();
+$("#new-detail-input").click(function() {
+  const email = $("#email").val();
+  const firstName = $("#firstName").val();
+  const lastName = $("#lastName").val();
+  const phoneNumber = $("#phoneNumber").val();
+  const dob = $("#dob").val();
+  const city = $("#city").val();
+  const status = $("#status").val();
+  document.getElementsByName("children")[0].checked;
+  document.getElementsByName("children")[1].checked;
+  const number_of_children = $("#number_of_children").val();
+  const education = $("#education").val();
+  const occupation = $("#occupation").val();
+  const income = $("#income").val();
+  document.getElementsByName("laptop")[0].checked;
+  document.getElementsByName("laptop")[1].checked;
+  document.getElementsByName("data")[0].checked;
+  document.getElementsByName("data")[1].checked;
+  
+  const classes = $("#classes").val();
+  const opportunity = $("#opportunity").val();
+  const media = $("#media").val();
+  const why_this_course = $("#why_this_course").val();
+  const permission = $("#permission").val();
 
-          const data = {
-            email,
-            firstName,
-            lastName,
-            phoneNumber,
-            dob,
-            city,
-            status,
-            yes,
-            no,
-            number_of_children,
-            education,
-            occupation,
-            income,
-            laptop,
-            no_laptop,
-            wifi,
-            no_wifi,
-            classes,
-            opportunity,
-            media,
-            why_this_course,
-            permission
-          }
-          console.log(data);
-          // details.push(newInput);
+  const data = {
+    email,
+    firstName,
+    lastName,
+    phoneNumber,
+    dob,
+    city,
+    status,
+    yes,
+    no,
+    number_of_children,
+    education,
+    occupation,
+    income,
+    laptop,
+    no_laptop,
+    wifi,
+    no_wifi,
+    classes,
+    opportunity,
+    media,
+    why_this_course,
+    permission
+  }
+  console.log(data);
+  // details.push(newInput);
 
-          // for(let detail of details) {
-          //   $(".container").append('<label>' + detail + '</label>');
+  // for(let detail of details) {
+  //   $(".container").append('<label>' + detail + '</label>');
 
-          //   List.pop(newInput);
-          })
+  //   List.pop(newInput);
+  })
+
+  const getApplications = ()=>{
+    fetch('/getApplications',{method : "get"}).then((response)=>{
+      return response.json();
+    }).then((data)=>{
+      console.log(data);
+      displayApplications(data);
+    });
+  }
+
+  getApplications();
+
+  const resetApplicationsInput = ()=>{
+    detail.val('');
+  }
+
+  const editApplication = (application,applicationID,editID)=>{
+    let editBtn = $('${editID}');
+    editBtn.click(()=>{
+      fetch('/$application._id}', {
+        method : "put",
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({application : detail.val()})
+      }).then((response)=>{
+        return response.json();
+      }).then((data)=>{
+        if(data.ok == 1){
+          let applicatonIndex = $('#${applicaionID}');
+          applicaionIndex.html(data.value.application);
+          resetApplicationsInput();
+        }
+      })
+    })
+  }
+
+  const deleteApplication = (application,listItemID,deleteID)=>{
+    let deleteBtn = $('#${deleteID}');
+    deleteBtn.click(()=>{
+      fetch('/${application._id}',{
+        method : "delete"
+      }).then(()=>{
+        return response.json();
+      }).then((data)=>{
+        if(data.ok ==1){
+          $('#${listItemID}').remove();
+        }
+      });
+    })
+  }
+
+  const buildIDS = (application)=>{
+    return {
+      editID : "edit_" + todo._id,
+      deleteID : "delete_" + todo._id,
+      todoID : "todo_" + todo._id
+    }
+  }
+
+  const displayApplications = (data)=>{
+    data.forEach((application)=>{
+      let ids = buildIDS(application);
+    });
+  }
+
+  $("#new-detail-input").submit((e)=>{
+    e.preventDefault();
+    fetch('/', {
+      method : 'post',
+      body : JSON.stringify(),
+      headers : {
+        "Content-Type" : "application/json",
+      }
+    }).then((response)=>{
+      return response.json();
+    }).then((data)=>{
+      if(data.result.ok ==1 && data.result.n ==1){
+        let ids = buildIDS(data.document);
+        display.append(buildTemplate(data.document,ids));
+        editApplication(data.document,ids.applicationID,ids.editID);
+      }
+      resetApplicationsInput();
+    });
+  }
+
       </script>
+
+      
 </body>
 </html>
