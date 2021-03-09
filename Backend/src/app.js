@@ -10,8 +10,8 @@ const db = require("./db/db.js");
 const collection = "application";
 
 
-app.get('/',(req,res)=>{
-  res.sendFile(path.join(_dirname,'./Frontend/form.html'));
+app.get('/form',(req,res)=>{
+  res.sendFile('./Frontend/form.html', { root: _dirname});
 });
 
 app.get('/getApplications',(req,res)=>{

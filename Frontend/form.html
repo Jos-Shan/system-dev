@@ -67,7 +67,7 @@
 </head>
 <body>
   
-    <form name="form" method="POST" action="" class="input">  
+    <form name="form" method="POST" action="" class="input" id="form">  
       
         <div class="container"> 
           <div class="image">
@@ -146,7 +146,7 @@
         <input type="radio" id="no_wifi" value="no" name="data"> No   <br> <br>
         
         <label><b>If No, How will you manage to continue with the program Online(for 2 hours classes, 3 times a week for 2 months)? NB: 80% attendance is required for graduation</b></label>   
-        <input type="text" id="classes" name="" placeholder= "Your answer" size="15" required /> <br> 
+        <input type="text" id="classes" name="classes" placeholder= "Your answer" size="15" required /> <br> 
  
         <label><b>How did you hear about this opportunity?</b></label> 
           <select id="opportunity">  
@@ -158,7 +158,7 @@
           </select>  <br> <br>
 
         <label> <b>Which Facebook group, Website, WhatsApp group or other channels?</b> </label>  <br>   
-        <input type="text" id="media" name="" placeholder="Your answer" size="10" />
+        <input type="text" id="media" name="media" placeholder="Your answer" size="10" />
  
         <label><b>Why do you want to sign up for this course?</b></label>  
           <select id="why_this_course" >  
@@ -194,7 +194,6 @@ $("#new-detail-input").click(function() {
   document.getElementsByName("laptop")[1].checked;
   document.getElementsByName("data")[0].checked;
   document.getElementsByName("data")[1].checked;
-  
   const classes = $("#classes").val();
   const opportunity = $("#opportunity").val();
   const media = $("#media").val();
@@ -226,15 +225,13 @@ $("#new-detail-input").click(function() {
     permission
   }
   console.log(data);
-  // details.push(newInput);
 
-  // for(let detail of details) {
-  //   $(".container").append('<label>' + detail + '</label>');
+  $(document).ready(()=>{
+    const display = $("#display");
+    const form = $("#form");
+    const details = $("#details");
 
-  //   List.pop(newInput);
-  })
-
-  const getApplications = ()=>{
+    const getApplications = ()=>{
     fetch('/getApplications',{method : "get"}).then((response)=>{
       return response.json();
     }).then((data)=>{
@@ -245,7 +242,7 @@ $("#new-detail-input").click(function() {
 
   getApplications();
 
-  const resetApplicationsInput = ()=>{
+    const resetApplicationsInput = ()=>{
     detail.val('');
   }
 
@@ -278,18 +275,18 @@ $("#new-detail-input").click(function() {
       }).then(()=>{
         return response.json();
       }).then((data)=>{
-        if(data.ok ==1){
+        if(data.ok == 1){
           $('#${listItemID}').remove();
         }
       });
     })
   }
 
-  const buildIDS = (application)=>{
+    const buildIDS = (application)=>{
     return {
       editID : "edit_" + todo._id,
       deleteID : "delete_" + todo._id,
-      todoID : "todo_" + todo._id
+      applicationID : "todo_" + todo._id
     }
   }
 
@@ -299,7 +296,7 @@ $("#new-detail-input").click(function() {
     });
   }
 
-  $("#new-detail-input").submit((e)=>{
+  form.submit((e)=>{
     e.preventDefault();
     fetch('/', {
       method : 'post',
@@ -317,8 +314,7 @@ $("#new-detail-input").click(function() {
       }
       resetApplicationsInput();
     });
-  }
-
+  });
       </script>
 
       
